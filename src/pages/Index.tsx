@@ -1,13 +1,25 @@
-// Update this page (the content is just a fallback if you fail to update the page)
 
-const Index = () => {
+import React from 'react';
+import Header from '@/components/Header';
+import NewTaskInput from '@/components/NewTaskInput';
+import TaskList from '@/components/TaskList';
+import { TaskProvider } from '@/context/TaskContext';
+
+const Index: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <TaskProvider>
+      <div className="min-h-screen bg-gray-50 relative overflow-hidden">
+        {/* Background design elements */}
+        <div className="fixed inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,0,0,0.02),transparent_40%)] z-[-1]"></div>
+        <div className="fixed inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(0,0,0,0.02),transparent_30%)] z-[-1]"></div>
+        
+        <div className="max-w-2xl mx-auto pb-20">
+          <Header />
+          <NewTaskInput />
+          <TaskList />
+        </div>
       </div>
-    </div>
+    </TaskProvider>
   );
 };
 
